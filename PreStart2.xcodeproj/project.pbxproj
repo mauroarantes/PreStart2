@@ -14,6 +14,7 @@
 		06F2D02F27B143DE0055C5E4 /* PreStart2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D02E27B143DE0055C5E4 /* PreStart2Tests.swift */; };
 		06F2D03927B143DE0055C5E4 /* PreStart2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D03827B143DE0055C5E4 /* PreStart2UITests.swift */; };
 		06F2D03B27B143DE0055C5E4 /* PreStart2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D03A27B143DE0055C5E4 /* PreStart2UITestsLaunchTests.swift */; };
+		06F2D04827B151830055C5E4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D04727B151830055C5E4 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		06F2D03427B143DE0055C5E4 /* PreStart2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreStart2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F2D03827B143DE0055C5E4 /* PreStart2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreStart2UITests.swift; sourceTree = "<group>"; };
 		06F2D03A27B143DE0055C5E4 /* PreStart2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreStart2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		06F2D04727B151830055C5E4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				06F2D01D27B143DA0055C5E4 /* PreStart2App.swift */,
 				06F2D01F27B143DA0055C5E4 /* ContentView.swift */,
+				06F2D04727B151830055C5E4 /* ViewModel.swift */,
 				06F2D02127B143DE0055C5E4 /* Assets.xcassets */,
 				06F2D02327B143DE0055C5E4 /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06F2D02027B143DA0055C5E4 /* ContentView.swift in Sources */,
+				06F2D04827B151830055C5E4 /* ViewModel.swift in Sources */,
 				06F2D01E27B143DA0055C5E4 /* PreStart2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
