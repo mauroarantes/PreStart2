@@ -39,12 +39,12 @@ struct URLImage: View {
 
 struct ContentView: View {
     
-    @StateObject var viewModel = ViewModel()
+    @StateObject var coursesListViewModel = CoursesListViewModel()
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.courses, id:\.self) { course in
+                ForEach(coursesListViewModel.courses, id:\.self) { course in
                     HStack {
                         URLImage(urlString: course.image)
                         Text(course.name)
@@ -55,7 +55,7 @@ struct ContentView: View {
             }
             .navigationTitle("Courses")
             .onAppear {
-                viewModel.fetch()
+                coursesListViewModel.fetch()
             }
         }
     }
