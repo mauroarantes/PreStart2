@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct URLImage: View {
-    let urlString: String
+    let URLstring: String
     @State var data: Data?
     var body: some View {
         if let data = data, let uiimage = UIImage(data: data) {
@@ -29,7 +29,7 @@ struct URLImage: View {
         }
     }
     private func fetchData() {
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: URLstring) else { return }
         let task = URLSession.shared.dataTask(with: url) { data, _, _ in
             self.data = data
         }
@@ -46,7 +46,7 @@ struct ContentView: View {
             List {
                 ForEach(viewModel.courses, id:\.self) { course in
                     HStack {
-                        URLImage(urlString: course.image)
+                        URLImage(URLstring: course.image)
                         Text(course.name)
                             .bold()
                     }
