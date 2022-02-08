@@ -24,17 +24,17 @@ struct URLImage: View {
                 .frame(width: 130, height: 70)
                 .background(Color.gray)
                 .onAppear {
-                    fetchData()
+                    data = self.getImage(imageURL: urlString)
                 }
         }
     }
-    private func fetchData() {
-        guard let url = URL(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
-            self.data = data
-        }
-        task.resume()
-    }
+//    private func fetchData() {
+//        guard let url = URL(string: urlString) else { return }
+//        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+//            self.data = data
+//        }
+//        task.resume()
+//    }
 }
 
 struct ContentView: View {
