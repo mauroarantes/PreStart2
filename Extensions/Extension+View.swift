@@ -11,11 +11,16 @@ extension View {
     
     func getImage(imageURL: String) -> Data? {
         var imageData: Data?
+        let semaphore = DispatchSemaphore(value: 0)
         guard let url = URL(string: imageURL) else { return nil }
         let task = URLSession.shared.dataTask(with: url) { data, _, _ in
             imageData = data
+            print("..",imageData ?? "No data")
+            semaphore.signal()
         }
         task.resume()
+        print("//",imageData ?? "No data")
+        semaphore.wait()
         return imageData
     }
 
@@ -39,8 +44,7 @@ extension View {
     
     
     
-//    func getImage(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
-//        contentMode = mode
+//    func getImage(from url: URL) {
 //        let session = URLSession.shared
 //        let task = session.dataTask(with: url) {data, response, error in
 //            guard let httpURLReponse = response as? HTTPURLResponse, httpURLReponse.statusCode == 200 else {return}
@@ -54,4 +58,6 @@ extension View {
 //        }
 //        task.resume()
 //    }
+    
+    
 }
