@@ -8,6 +8,10 @@
 import XCTest
 @testable import PreStart2
 
+// Naming structure: test_UnitOfWork_StateUnderTest_ExpectedBehavior
+
+//Testing structure: Given, When, Then (Assert)
+
 class PreStart2Tests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -18,16 +22,13 @@ class PreStart2Tests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_CourseImageViewModel_isLoading_shouldBeTrue() {
+        // Given
+        let c1: Course = Course(name: "Name1", image: "Image1")
+        //When
+        let vm = CourseImageViewModel(course: c1)
+        //Then
+        XCTAssertTrue(vm.isLoading)
     }
 
 }
