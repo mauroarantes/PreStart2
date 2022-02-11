@@ -8,9 +8,19 @@
 import Foundation
 import Combine
 
-class CourseDataService {
+protocol CourseDataServiceProtocol {
+    // Define name publisher
+    var namePublisher: Published<[Course]>.Publisher { get }
+    
+    func getCourses()
+}
+
+class CourseDataService: CourseDataServiceProtocol {
     
     @Published var courses: [Course] = []
+    
+    // Manually expose name publisher in view model implementation
+    var namePublisher: Published<[Course]>.Publisher { $courses }
     
     var courseSubscription: AnyCancellable?
     
@@ -18,7 +28,7 @@ class CourseDataService {
         getCourses()
     }
     
-    private func getCourses() {
+    internal func getCourses() {
         guard let url = URL(string: "https://iosacademy.io/api/v1/courses/index.php") else { return }
         
         courseSubscription = NetworkingManager.download(url: url)

@@ -12,17 +12,21 @@ class CoursesListViewModel: ObservableObject {
     
     @Published var courses : [Course] = []
     
-    var courseSubscription: AnyCancellable?
+    // Manually expose name publisher in view model implementation
+    var namePublisher: Published<[Course]>.Publisher { $courses }
     
-    private let dataService = CourseDataService()
+//    var courseSubscription: AnyCancellable?
+    
+    private let dataService: CourseDataServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    init() {
+    init(dataService: CourseDataServiceProtocol = CourseDataService()) {
+        self.dataService = dataService
         addSubscribers()
     }
     
     func addSubscribers() {
-        dataService.$courses
+        dataService.namePublisher
             .sink{ [weak self] (returnedCourses) in
                 self?.courses = returnedCourses
             }
